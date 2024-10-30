@@ -1,8 +1,8 @@
 # Android-Termux-Linux-Desktop
 
-# [Lệnh] Cách cài đặt Linux Distro trên Termux bằng proot-distro (Không cần Root)
-Các bước được viết như sau:
-
+#[Lệnh]
+#Cách cài đặt Linux Distro trên Termux #bằng proot-distro (Không cần Root)
+#Các bước được viết như sau:
 #Mở Termux
 #Cài đặt proot-distro
 
@@ -18,7 +18,8 @@ proot-distro install debian
 
 proot-distro login debian
 
-#[Lệnh] Tạo người dùng có quyền sudo
+#[Lệnh]
+#Tạo người dùng có quyền sudo
 #Các bước thực hiện như sau.
 #Cài đặt các gói cần thiết
 
@@ -38,6 +39,8 @@ nano /etc/sudoers
 #Kiểm tra xem bạn có thể thực hiện #lệnh sudo không (nó sẽ trả về root)
 
 sudo whoami 
+
+
 
 
 
