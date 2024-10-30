@@ -1,6 +1,6 @@
 # Android-Termux-Linux-Desktop
 
-#[Lệnh] Cách cài đặt Linux Distro trên Termux bằng proot-distro (Không cần Root)
+# [Lệnh] Cách cài đặt Linux Distro trên Termux bằng proot-distro (Không cần Root)
 Các bước được viết như sau:
 
 #Mở Termux
@@ -27,13 +27,13 @@ apt install sudo nano adduser -y
 
 #Tạo người dùng
 
-adduser <username>
+adduser <username của bạn>
 
 #Cấp cho người dùng quyền sudo
 nano /etc/sudoers
 
-# Thêm dòng bên dưới vào file .sh
- <username> ALL=(ALL:ALL) ALL
+#Thêm dòng bên dưới vào file .sh
+ <username của bạn> ALL=(ALL:ALL) ALL
 
 #Kiểm tra xem bạn có thể thực hiện #lệnh sudo không (nó sẽ trả về root)
 
