@@ -47,20 +47,20 @@ adduser username
 
 #Cấp cho người dùng quyền sudo
 
-usermod -aG sudo username
+nano /etc/sudoers
 
-#Thêm dòng bên dưới vào file .sh
+#Trong GNU nano xóa $sudo thêm dòng bên dưới vào file,^ là phím ctrl,M là phím Alt, sửa xong bấm ctrl X để exit, hỏi lưu không thì bấm Y rồi bấm Enter.
 
 username ALL=(ALL:ALL) ALL
 
-#Kiểm tra xem bạn có thể thực hiện lệnh sudo không (nó sẽ trả về sudo:x:27:username )
+#login vào username kiểm tra xem bạn có thể thực hiện lệnh sudo không bằng lệnh bên dưới (nó sẽ trả về root )
 
-getent group sudo
+sudo whoami
 
 # Cài đặt Desktop
 #Desktop UI Gnome 
 
-proot-distro login debian --user <username của bạn>
+proot-distro login debian --user username
 
 sudo apt install dbus-x11 nano gnome gnome-shell gnome-terminal gnome-tweaks gnome-software nautilus gnome-shell-extension-manager gedit tigervnc-tools gnupg2 -y
 
