@@ -67,9 +67,7 @@ sudo apt install dbus-x11 nano gnome gnome-shell gnome-terminal gnome-tweaks gno
 
 #Cài xong tiếp tục chạy lệnh bên dưới.
 
-for file in $(find /usr -type f -iname "*login1*"); do rm -rf $file
-
-#Chạy lệnh xong ra dấu nháy > thì nhập done
+for file in $(find /usr -type f -iname "*login1*"); do rm -rf $file done
 
 # Chạy Desktops để sử dụng với Termux X11
 #Ghi chú
