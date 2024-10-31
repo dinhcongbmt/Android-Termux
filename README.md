@@ -71,18 +71,23 @@ for file in $(find /usr -type f -iname "*login1*"); do rm -rf $file
 done
 
 # Chạy Desktops để sử dụng với Termux X11
-#Tải xuống tập lệnh tương bên dưới, cấp quyền thực thi và chạy tập lệnh đó (trong Termux, không phải trong proot-distro):
+#Ghi chú
+
+Theo mặc định, tập lệnh này hoạt động với người dùng "dinhcongbmt". Nếu bạn tạo usename có tên khác trong proot-distro, vui lòng thay đổi nơi ghi "dinhcongbmt" bên trong tập lệnh.
+#Tải xuống tập lệnh bên dưới, cấp quyền thực thi và chạy tập lệnh đó (trong Termux, không phải trong proot-distro):
+
+#Cài Tập lệnh Startgnome_debian.sh với lệnh wget.
+
+wget https://raw.githubusercontent.com/dinhcongbmt/Android-Termux/refs/heads/main/startgnome_debian.sh
+
+#Chạy lệnh bên dưới để vào GUI Desktop
 
 chmod +x startgnome_debian.sh
 ./startgnome_debian.sh
 
-#Ghi chú
 
-Theo mặc định, tập lệnh này hoạt động với người dùng "dinhcongbmt". Nếu bạn tạo usename có tên khác trong proot-distro, vui lòng thay đổi nơi ghi "dinhcongbmt" bên trong tập lệnh.
 
-#Cài Tập lệnh Startgnome_debian.sh với lệnh wget.
 
-wget https://raw.githubusercontent.com/LinuxDroidMaster/Termux-Desktops/main/scripts/proot_debian/startgnome_debian.sh
 
 
 
