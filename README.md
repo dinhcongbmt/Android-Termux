@@ -82,6 +82,9 @@ wget https://raw.githubusercontent.com/dinhcongbmt/Android-Termux/refs/heads/mai
 #Chạy lệnh bên dưới để vào GUI Desktop
 
 chmod +x startgnome_debian.sh
+
+#Sau đó chạy lênh dưới đậy.
+
 ./startgnome_debian.sh
 
 
