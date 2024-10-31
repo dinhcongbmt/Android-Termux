@@ -1,8 +1,8 @@
 # Android-Termux-Linux-Desktop
 
 #[Lệnh]
-#Cách cài đặt Linux Distro trên Termux #bằng proot-distro (Không cần Root)
-#Các bước được viết như sau:
+#Cách cài đặt Linux Distro trên Termux bằng proot-distro (Không cần Root)
+#Các bước được thực hiện như sau.
 #Mở Termux
 #Cài đặt proot-distro
 
@@ -18,7 +18,9 @@ pkg install pulseaudio
 
 Pkg install bash
 
-Pkg install git
+pkg install wget
+
+pkg install git
 
 git clone https://github.com/termux/proot-distro
 
@@ -28,70 +30,57 @@ cd proot-distro ./install.sh
 
 proot-distro install debian
 
-#Đăng nhập vào bản phân phối
+#Login vào Debian bằng ueser root
 
 proot-distro login debian
 
-#[Lệnh]
-#Tạo người dùng có quyền sudo
-#Các bước thực hiện như sau.
-#Cài đặt các gói cần thiết
+#Tạo người dùng có quyền sudo và cài GNU nano
 
 apt update -y
 
 apt install sudo nano adduser -y
 
-#Tạo người dùng
+#Tạo người dùng và mật khẩu (thay user name bằng tên người dùng của bạn đặt).
 
 adduser username
 
-#Cấp cho người dùng quyền sudo
+#Cấp cho người dùng quyền sudo.
 
 nano /etc/sudoers
 
-#Trong GNU nano xóa $sudo thêm dòng bên dưới vào file,^ là phím ctrl,M là phím Alt, sửa xong bấm ctrl X để exit, hỏi lưu không thì bấm Y rồi bấm Enter.
+#Trong GNU nano xóa $sudo và thêm dòng bên dưới vào file,^ là phím ctrl,M là phím Alt, sửa xong bấm ctrl X để exit, hỏi lưu không thì bấm Y rồi bấm Enter.
 
 username ALL=(ALL:ALL) ALL
 
-#login vào username kiểm tra xem bạn có thể thực hiện lệnh sudo không bằng lệnh bên dưới (nó sẽ trả về root )
+#login vào username kiểm tra xem bạn có thể thực hiện lệnh sudo không bằng lệnh bên dưới (nó sẽ trả về root).
 
 sudo whoami
 
-# Cài đặt Desktop
-#Desktop UI Gnome 
+# Cài đặt Desktop UI Gnome
+#Login vào Debian bằng user của bạn.
 
 proot-distro login debian --user username
 
+#chạy lệnh sau để cài Gnome
+
 sudo apt install dbus-x11 nano gnome gnome-shell gnome-terminal gnome-tweaks gnome-software nautilus gnome-shell-extension-manager gedit tigervnc-tools gnupg2 -y
+
+#Cài xong tiếp tục chạy lệnh bên dưới.
 
 for file in $(find /usr -type f -iname "*login1*"); do rm -rf $file
 done
 
 # Chạy Desktops để sử dụng với Termux X11
-#Tất cả các tập lệnh trong kho lưu trữ này đều được chuẩn bị để chạy nhiều máy tính để bàn khác nhau có âm thanh một cách dễ dàng.
-#Đầu tiên bạn cần cài đặt các gói sau vào Termux:
-
-pkg update
-
-pkg install x11-repo
-
-pkg install termux-x11-nightly
-
-pkg install pulseaudio
-
-Sau đó, bạn chỉ cần tải xuống tập lệnh tương ứng với Desktop bạn đã cài đặt, cấp quyền thực thi và chạy tập lệnh đó (trong Termux, không phải trong proot-distro):
-
-# Download the script to Termux
+#Tải xuống tập lệnh tương bên dưới, cấp quyền thực thi và chạy tập lệnh đó (trong Termux, không phải trong proot-distro):
 
 chmod +x startgnome_debian.sh
 ./startgnome_debian.sh
 
+#Ghi chú
 
-Ghi chú
+Theo mặc định, tập lệnh này hoạt động với người dùng "dinhcongbmt". Nếu bạn tạo usename có tên khác trong proot-distro, vui lòng thay đổi nơi ghi "dinhcongbmt" bên trong tập lệnh.
 
-Theo mặc định, tập lệnh này hoạt động với người dùng "droidmaster". Nếu bạn tạo người dùng có tên khác trong proot-distro, vui lòng thay đổi nơi ghi "dinhcongbmt" bên trong tập lệnh.
-
-bắt đầu gnome_debian.sh
+#Cài Tập lệnh Startgnome_debian.sh với lệnh wget.
 
 wget https://raw.githubusercontent.com/LinuxDroidMaster/Termux-Desktops/main/scripts/proot_debian/startgnome_debian.sh
 
