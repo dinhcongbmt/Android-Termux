@@ -9,7 +9,7 @@ pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth
 # Prepare termux-x11 session
 export XDG_RUNTIME_DIR=${TMPDIR}
 termux-x11 :0 >/dev/null &
-
+virgl_test_server_android &
 # Wait a bit until termux-x11 gets started.
 sleep 3
 
@@ -22,6 +22,6 @@ sleep 1
 # See also: https://github.com/termux/proot-distro
 # Argument -- acts as terminator of proot-distro login options processing.
 # All arguments behind it would not be treated as options of PRoot Distro.
-proot-distro login debian --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - debian -c "env DISPLAY=:0 startxfce4"'
+proot-distro login debian --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - nick -c "env DISPLAY=:0 startxfce4"'
 
 exit 0
