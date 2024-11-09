@@ -1,4 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Kill open X11 processes
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
@@ -18,10 +19,10 @@ am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity > /dev/null 2>&1
 sleep 1
 
 # Login in PRoot Environment. Do some initialization for PulseAudio, /tmp directory
-# and run KDE as user ubuntu.
+# and run XFCE4 as user debian.
 # See also: https://github.com/termux/proot-distro
 # Argument -- acts as terminator of proot-distro login options processing.
 # All arguments behind it would not be treated as options of PRoot Distro.
-proot-distro login ubuntu --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && sudo service dbus start && su - ubuntu -c "env DISPLAY=:0 gnome-shell --x11"'
+proot-distro login ubuntu --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - ubuntu -c "env DISPLAY=:0 startxfce4"'
 
 exit 0
